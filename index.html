@@ -8,120 +8,184 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
-            --oro: #d4af37;
-            --rosa-soft: #fce4ec;
+            --oro: #b89b5e;
+            --oro-brillante: #d4af37;
+            --rosa-claro: #fff0f5;
+            --rosa-medio: #f8bbd0;
             --rosa-fuerte: #e91e63;
-            --texto: #4a4a4a;
-            --blanco-cristal: rgba(255, 255, 255, 0.85);
+            --texto: #444;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--rosa-soft);
+            background-color: var(--rosa-claro);
             color: var(--texto);
             overflow-x: hidden;
-            background: linear-gradient(135deg, #fff5f8 0%, #ffe4ed 100%);
+            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
         }
 
-        #particles-js { position: fixed; width: 100%; height: 100%; z-index: 1; }
+        /* Fondo de brillos */
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: 1; top: 0; left: 0; }
 
         .main-container { position: relative; z-index: 2; max-width: 500px; margin: 0 auto; padding: 20px; }
 
+        /* --- DECORACIÓN: ROSAS EN ESQUINAS --- */
+        .flower-corner {
+            position: fixed; width: 150px; z-index: 3; opacity: 0.8; pointer-events: none;
+        }
+        .top-left { top: -20px; left: -20px; transform: rotate(10deg); }
+        .bottom-right { bottom: -20px; right: -20px; transform: rotate(190deg); }
+
         header {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            padding: 40px 10px;
         }
 
-        .glass-card {
-            background: var(--blanco-cristal);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
-            padding: 40px 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid rgba(255,255,255,0.3);
-            text-align: center;
+        /* --- ICONO CORONA --- */
+        .crown-icon {
+            width: 80px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+            animation: float 3s ease-in-out infinite;
         }
 
-        /* --- AJUSTE: FUENTE MÁS GRANDE --- */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         .mis-xv { 
             font-family: 'Cinzel', serif; 
-            font-size: 2.2rem; /* Tamaño aumentado */
+            font-size: 2.2rem; 
             color: var(--oro); 
-            letter-spacing: 5px;
-            margin-bottom: 10px;
+            letter-spacing: 6px;
             font-weight: 700;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
-        h1 { font-family: 'Great Vibes', cursive; font-size: 4.5rem; color: var(--rosa-fuerte); margin: 10px 0; }
-        
-        h3 { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--oro); margin-bottom: 15px; text-transform: uppercase; }
-        
-        p { line-height: 1.6; margin-bottom: 15px; font-size: 0.95rem; }
+        h1 { font-family: 'Great Vibes', cursive; font-size: 4rem; color: var(--rosa-fuerte); margin: 5px 0; line-height: 1.2; }
+        .full-name { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--oro); letter-spacing: 3px; margin-bottom: 25px; }
 
-        .countdown-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
-        .count-item { background: white; padding: 10px 5px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
-        .count-number { display: block; font-size: 1.2rem; font-weight: 600; color: var(--rosa-fuerte); }
-        .count-label { font-size: 0.6rem; text-transform: uppercase; color: #888; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(5px);
+            border-radius: 20px;
+            padding: 35px 25px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.1);
+            border: 2px solid #fce4ec;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
 
+        /* Adorno de rosas en tarjetas */
+        .glass-card::before {
+            content: '🌸';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.2rem;
+            opacity: 0.3;
+        }
+
+        h3 { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--oro); margin-bottom: 15px; letter-spacing: 2px; }
+        
+        .divider-flower {
+            display: flex; align-items: center; justify-content: center; margin: 20px 0;
+        }
+        .divider-flower span { font-size: 1.5rem; margin: 0 10px; }
+        .divider-flower::before, .divider-flower::after {
+            content: ''; height: 1px; width: 60px; background: var(--oro);
+        }
+
+        .name-family { font-weight: 600; font-size: 1.05rem; color: #444; margin-bottom: 5px; }
+
+        /* Botones Estilo Real */
         .btn {
             display: inline-block;
-            background: linear-gradient(45deg, #e91e63, #ff6090);
+            background: linear-gradient(45deg, #b89b5e, #d4af37);
             color: white;
             text-decoration: none;
-            padding: 15px 35px;
+            padding: 15px 25px;
             border-radius: 50px;
             font-weight: 600;
-            margin: 10px 0;
+            margin-top: 15px;
             transition: 0.3s;
             width: 100%;
-            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 15px rgba(184, 155, 94, 0.4);
+            border: none;
+            cursor: pointer;
         }
-        .btn:active { transform: scale(0.95); }
-        .btn-outline { background: transparent; border: 2px solid var(--rosa-fuerte); color: var(--rosa-fuerte); }
+
+        .btn-whats { background: linear-gradient(45deg, #e91e63, #ff6090); box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3); }
 
         .music-control {
-            position: fixed; bottom: 20px; right: 20px; z-index: 100;
-            background: white; width: 50px; height: 50px; border-radius: 50%;
+            position: fixed; bottom: 25px; right: 25px; z-index: 100;
+            background: white; width: 60px; height: 60px; border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer;
+            box-shadow: 0 5px 20px rgba(233, 30, 99, 0.2); cursor: pointer;
+            border: 2px solid var(--rosa-medio);
         }
 
-        .playing { animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(233, 30, 99, 0); } 100% { box-shadow: 0 0 0 0 rgba(233, 30, 99, 0); } }
+        .countdown-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
+        .count-item { background: var(--rosa-claro); padding: 12px 5px; border-radius: 12px; }
+        .count-number { display: block; font-size: 1.3rem; font-weight: 700; color: var(--rosa-fuerte); }
+        .count-label { font-size: 0.6rem; text-transform: uppercase; color: #777; }
 
-        .divider { height: 2px; background: linear-gradient(to right, transparent, var(--oro), transparent); margin: 25px 0; }
-        .icon-sec { font-size: 1.8rem; margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
     <div id="particles-js"></div>
 
+    <!-- Rosas decorativas fijas -->
+    <img src="https://cdn-icons-png.flaticon.com/512/606/606801.png" class="flower-corner top-left" alt="decoracion">
+    <img src="https://cdn-icons-png.flaticon.com/512/606/606801.png" class="flower-corner bottom-right" alt="decoracion">
+
     <div class="music-control" id="musicBtn">
-        <span id="musicIcon">🎵</span>
+        <span id="musicIcon" style="font-size: 24px;">🎵</span>
     </div>
 
     <div class="main-container">
         
-        <header data-aos="fade-up">
+        <header data-aos="fade-down">
+            <!-- Corona Dorada SVG -->
+            <img src="https://cdn-icons-png.flaticon.com/512/614/614145.png" class="crown-icon" alt="corona">
             <div class="mis-xv">Mis XV Años</div>
             <h1>Iyari Jazmín</h1>
-            <p>“Hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que amas los hace inolvidables.”</p>
-            <div class="divider"></div>
-            <p>Te espero para celebrar juntos el</p>
-            <!-- FECHA ACTUALIZADA -->
-            <h2 style="font-family: 'Cinzel'; color: var(--oro); letter-spacing: 3px;">03 • Octubre • 2026</h2>
+            <div class="full-name">Martínez Cruz</div>
+            <p style="font-style: italic; color: #777;">"Hoy celebro el inicio de una nueva etapa, llena de sueños y alegría."</p>
+            <div class="divider-flower"><span>🌸</span></div>
+            <h2 style="font-family: 'Cinzel'; color: var(--oro); letter-spacing: 3px; font-size: 1.3rem;">03 • Octubre • 2026</h2>
         </header>
 
+        <!-- Familia -->
+        <div class="glass-card" data-aos="fade-up">
+            <h3>Con la bendición de mis padres</h3>
+            <p class="name-family">Juan Carlos Martínez Romero</p>
+            <p class="name-family">Araceli Cruz Sánchez</p>
+            
+            <div class="divider-flower" style="margin: 15px 0;"><span>👑</span></div>
+            
+            <h3>Y el apoyo de mis padrinos</h3>
+            <p class="name-family">Gabriel Reyes Martínez</p>
+            <p class="name-family">María del Rocío Martínez Romero</p>
+        </div>
+
+        <!-- Reloj -->
         <div class="glass-card" data-aos="zoom-in">
-            <h3>Faltan:</h3>
+            <h3>Cuenta Regresiva</h3>
             <div class="countdown-container" id="timer">
                 <div class="count-item"><span class="count-number" id="days">00</span><span class="count-label">Días</span></div>
                 <div class="count-item"><span class="count-number" id="hours">00</span><span class="count-label">Hrs</span></div>
@@ -130,56 +194,62 @@
             </div>
         </div>
 
+        <!-- Misa -->
         <div class="glass-card" data-aos="fade-right">
-            <div class="icon-sec">⛪</div>
-            <h3>Misa de Acción de Gracias</h3>
+            <span style="font-size: 2rem;">⛪</span>
+            <h3>Ceremonia Religiosa</h3>
             <p><b>Parroquia Santa María Magdalena</b></p>
-            <p>Plazuela Principal, Santa Cruz Tlapacoya<br>Ixtapaluca, Estado de México</p>
+            <p>Plazuela Principal, Santa Cruz Tlapacoya<br>Ixtapaluca, Edo. Méx.</p>
             <p><b>4:45 PM</b></p>
             <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+Santa+Maria+Magdalena+Ixtapaluca" class="btn" target="_blank">VER UBICACIÓN</a>
         </div>
 
-        <!-- SECCIÓN DE REGALOS ACTUALIZADA -->
+        <!-- Salón -->
         <div class="glass-card" data-aos="fade-left">
-            <div class="icon-sec">🎁</div>
-            <h3>Sugerencia de Regalos</h3>
-            <p>Tu presencia es mi mejor regalo, pero si deseas tener un detalle conmigo, agradecería mucho un presente físico para recordar este día tan especial.</p>
-            <div class="divider"></div>
-            <div class="icon-sec">👗</div>
-            <h3>Dress Code</h3>
-            <p><b>Formal / Elegante</b></p>
+            <span style="font-size: 2rem;">🏰</span>
+            <h3>Recepción</h3>
+            <p><b>Salón de fiestas GRECIA</b></p>
+            <p>Plazuela Principal, Santa Cruz Tlapacoya<br>Ixtapaluca, Edo. Méx.</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+fiestas+GRECIA+Ixtapaluca" class="btn" target="_blank">VER UBICACIÓN DEL SALÓN</a>
         </div>
 
+        <!-- Regalos -->
         <div class="glass-card" data-aos="fade-up">
-            <div class="icon-sec">💌</div>
-            <h3>Confirmación</h3>
-            <p>Por favor, confirma tu asistencia antes del 15 de septiembre.</p>
-            <a href="https://wa.me/52 55 8567 0796?text=Hola%20Iyari!%20Confirmo%20mi%20asistencia%20a%20tus%20XV%20Años." class="btn btn-outline" target="_blank">CONFIRMAR POR WHATSAPP</a>
+            <span style="font-size: 2rem;">🎁</span>
+            <h3>Regalos</h3>
+            <p>Tu presencia es mi mejor regalo, pero si deseas obsequiarme algo, agradecería mucho un presente físico.</p>
+            <div class="divider-flower"><span>👗</span></div>
+            <p><b>Código de Vestimenta:</b><br>Formal / Elegante</p>
         </div>
 
-        <footer style="text-align: center; padding: 20px; font-size: 0.8rem; opacity: 0.6;">
-            Con amor, Iyari Jazmín &copy; 2026
+        <!-- Confirmación -->
+        <div class="glass-card" data-aos="fade-up">
+            <h3>¿Me acompañas?</h3>
+            <p>Por favor, confirma tu asistencia antes del 15 de septiembre.</p>
+            <a href="https://wa.me/52 55 8567 0796?text=Hola%20Iyari!%20Confirmo%20mi%20asistencia%20a%20tus%20XV%20Años." class="btn btn-whats" target="_blank">CONFIRMAR ASISTENCIA</a>
+        </div>
+
+        <footer style="text-align: center; padding: 30px; font-size: 0.7rem; opacity: 0.6; letter-spacing: 2px;">
+            IYARI JAZMÍN MARTÍNEZ CRUZ • 2026
         </footer>
     </div>
 
-    <!-- Asegúrate que tu archivo se llame musica.mp3 en GitHub -->
-    <audio id="bgMusic" loop>
-        <source src="musica.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="bgMusic" loop><source src="musica.mp3" type="audio/mpeg"></audio>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         AOS.init({ duration: 1200, once: true });
 
+        // Partículas tipo "Diamantina" dorada y rosa
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 40 },
-                "color": { "value": "#e91e63" },
+                "number": { "value": 80 },
+                "color": { "value": ["#d4af37", "#f8bbd0", "#ffffff"] },
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.2 },
-                "size": { "value": 5 },
-                "move": { "enable": true, "speed": 1, "direction": "bottom" }
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 3, "random": true },
+                "move": { "enable": true, "speed": 1.5, "direction": "bottom-right", "random": true }
             }
         });
 
@@ -200,21 +270,14 @@
             playing = !playing;
         });
 
-        // CUENTA REGRESIVA ACTUALIZADA: 3 OCT 2026
         const targetDate = new Date("Oct 03, 2026 16:45:00").getTime();
-
         setInterval(() => {
             const now = new Date().getTime();
             const diff = targetDate - now;
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = d < 10 ? '0'+d : d;
-            document.getElementById('hours').innerText = h < 10 ? '0'+h : h;
-            document.getElementById('mins').innerText = m < 10 ? '0'+m : m;
-            document.getElementById('secs').innerText = s < 10 ? '0'+s : s;
+            document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById('mins').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById('secs').innerText = Math.floor((diff % (1000 * 60)) / 1000);
         }, 1000);
     </script>
 </body>
