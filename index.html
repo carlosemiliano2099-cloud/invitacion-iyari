@@ -1,266 +1,131 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XV Años | Iyari Jazmín</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        :root {
-            --oro: #b89b5e;
-            --oro-brillante: #d4af37;
-            --rosa-claro: #fff0f5;
-            --rosa-medio: #f8bbd0;
-            --rosa-fuerte: #e91e63;
-            --texto: #444;
-        }
+<div id="particles-js"></div>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<img src="https://cdn-icons-png.flaticon.com/512/606/606801.png" class="flower-corner top-left" alt="decoracion">
+<img src="https://cdn-icons-png.flaticon.com/512/606/606801.png" class="flower-corner bottom-right" alt="decoracion">
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--rosa-claro);
-            color: var(--texto);
-            overflow-x: hidden;
-            background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
-        }
+<div class="music-control" id="musicBtn">
+    <span id="musicIcon" style="font-size: 24px;">🎵</span>
+</div>
 
-        #particles-js { position: fixed; width: 100%; height: 100%; z-index: 1; top: 0; left: 0; }
+<div class="main-container">
+    
+    <header data-aos="fade-down">
+        <!-- Corona Dorada en SVG -->
+        <div class="crown-container">
+            <svg viewBox="0 0 512 512">
+                <path d="M472,168c-26.4,0-48,21.6-48,48c0,2.4,0.3,4.8,0.7,7.1l-64.7,32.3L281.4,103.5c16.4-6.8,28.2-22.9,28.2-41.8 C309.6,36.9,285.8,13,256.4,13c-29.4,0-53.2,23.9-53.2,53.2c0,19.3,10.2,36,25.3,45.2L151.7,255.4l-64.7-32.3c0.5-2.3,0.7-4.7,0.7-7.1 c0-26.4-21.6-48-48-48S0,189.6,0,216s21.6,48,48,48c2.4,0,4.8-0.2,7.1-0.7l32.3,161.7C91,446.9,110,464,132,464h248 c22,0,41-17.1,44.6-39.1l32.3-161.7c2.3,0.5,4.7,0.7,7.1,0.7c26.4,0,48-21.6,48-48S498.4,168,472,168z"/>
+            </svg>
+        </div>
+        <div class="mis-xv">Mis XV Años</div>
+        <h1>Iyari Jazmín</h1>
+        <div class="full-name">Martínez Cruz</div>
+        <p style="font-style: italic; color: #777;">"Hoy celebro el inicio de una nueva etapa, llena de sueños y alegría."</p>
+        <div class="divider-flower"><span>🌸</span></div>
+        <h2 style="font-family: 'Cinzel'; color: var(--oro); letter-spacing: 3px; font-size: 1.3rem;">03 • Octubre • 2026</h2>
+    </header>
 
-        .main-container { position: relative; z-index: 2; max-width: 500px; margin: 0 auto; padding: 20px; }
-
-        .flower-corner {
-            position: fixed; width: 150px; z-index: 3; opacity: 0.6; pointer-events: none;
-        }
-        .top-left { top: -20px; left: -20px; transform: rotate(10deg); }
-        .bottom-right { bottom: -20px; right: -20px; transform: rotate(190deg); }
-
-        header {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px 10px;
-        }
-
-        /* CORONA DORADA SVG */
-        .crown-container {
-            width: 100px;
-            margin-bottom: 20px;
-            fill: var(--oro-brillante);
-            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
-            animation: float 3.5s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-15px) scale(1.05); }
-        }
-
-        .mis-xv { 
-            font-family: 'Cinzel', serif; 
-            font-size: 2rem; 
-            color: var(--oro); 
-            letter-spacing: 6px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        h1 { font-family: 'Great Vibes', cursive; font-size: 4.5rem; color: var(--rosa-fuerte); margin: 5px 0; line-height: 1.2; }
-        .full-name { font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--oro); letter-spacing: 3px; margin-bottom: 25px; }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(5px);
-            border-radius: 20px;
-            padding: 35px 25px;
-            margin-bottom: 35px;
-            box-shadow: 0 10px 25px rgba(233, 30, 99, 0.1);
-            border: 1px solid #fce4ec;
-            text-align: center;
-        }
-
-        h3 { font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--oro); margin-bottom: 15px; letter-spacing: 2px; }
+    <!-- Familia -->
+    <div class="glass-card" data-aos="fade-up">
+        <h3>Con la bendición de mis padres</h3>
+        <p class="name-family">Juan Carlos Martínez Romero</p>
+        <p class="name-family">Araceli Cruz Sánchez</p>
         
-        .divider-flower {
-            display: flex; align-items: center; justify-content: center; margin: 20px 0;
-        }
-        .divider-flower span { font-size: 1.5rem; margin: 0 10px; }
-        .divider-flower::before, .divider-flower::after {
-            content: ''; height: 1px; width: 60px; background: var(--oro);
-        }
-
-        .name-family { font-weight: 600; font-size: 1.05rem; color: #444; margin-bottom: 5px; }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #b89b5e, #d4af37);
-            color: white;
-            text-decoration: none;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: 0.3s;
-            width: 100%;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-whats { background: linear-gradient(45deg, #25d366, #128c7e); box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
-
-        .music-control {
-            position: fixed; bottom: 25px; right: 25px; z-index: 100;
-            background: white; width: 60px; height: 60px; border-radius: 50%;
-            display: flex; justify-content: center; align-items: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); cursor: pointer;
-            border: 2px solid var(--oro);
-        }
-
-        .countdown-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
-        .count-item { background: var(--rosa-claro); padding: 12px 5px; border-radius: 12px; }
-        .count-number { display: block; font-size: 1.3rem; font-weight: 700; color: var(--rosa-fuerte); }
-        .count-label { font-size: 0.6rem; text-transform: uppercase; color: #777; }
-
-    </style>
-</head>
-<body>
-
-    <div id="particles-js"></div>
-
-    <img src="https://cdn-icons-png.flaticon.com/512/606/606801.png" class="flower-corner top-left" alt="decoracion">
-    <img src="https://cdn-icons-png.flaticon.com/512/606/606801.png" class="flower-corner bottom-right" alt="decoracion">
-
-    <div class="music-control" id="musicBtn">
-        <span id="musicIcon" style="font-size: 24px;">🎵</span>
+        <div class="divider-flower" style="margin: 15px 0;"><span>👑</span></div>
+        
+        <h3>Y el apoyo de mis padrinos</h3>
+        <p class="name-family">Gabriel Reyes Martínez</p>
+        <p class="name-family">María del Rocío Martínez Romero</p>
     </div>
 
-    <div class="main-container">
-        
-        <header data-aos="fade-down">
-            <!-- Corona Dorada en SVG -->
-            <div class="crown-container">
-                <svg viewBox="0 0 512 512">
-                    <path d="M472,168c-26.4,0-48,21.6-48,48c0,2.4,0.3,4.8,0.7,7.1l-64.7,32.3L281.4,103.5c16.4-6.8,28.2-22.9,28.2-41.8 C309.6,36.9,285.8,13,256.4,13c-29.4,0-53.2,23.9-53.2,53.2c0,19.3,10.2,36,25.3,45.2L151.7,255.4l-64.7-32.3c0.5-2.3,0.7-4.7,0.7-7.1 c0-26.4-21.6-48-48-48S0,189.6,0,216s21.6,48,48,48c2.4,0,4.8-0.2,7.1-0.7l32.3,161.7C91,446.9,110,464,132,464h248 c22,0,41-17.1,44.6-39.1l32.3-161.7c2.3,0.5,4.7,0.7,7.1,0.7c26.4,0,48-21.6,48-48S498.4,168,472,168z"/>
-                </svg>
-            </div>
-            <div class="mis-xv">Mis XV Años</div>
-            <h1>Iyari Jazmín</h1>
-            <div class="full-name">Martínez Cruz</div>
-            <p style="font-style: italic; color: #777;">"Hoy celebro el inicio de una nueva etapa, llena de sueños y alegría."</p>
-            <div class="divider-flower"><span>🌸</span></div>
-            <h2 style="font-family: 'Cinzel'; color: var(--oro); letter-spacing: 3px; font-size: 1.3rem;">03 • Octubre • 2026</h2>
-        </header>
-
-        <!-- Familia -->
-        <div class="glass-card" data-aos="fade-up">
-            <h3>Con la bendición de mis padres</h3>
-            <p class="name-family">Juan Carlos Martínez Romero</p>
-            <p class="name-family">Araceli Cruz Sánchez</p>
-            
-            <div class="divider-flower" style="margin: 15px 0;"><span>👑</span></div>
-            
-            <h3>Y el apoyo de mis padrinos</h3>
-            <p class="name-family">Gabriel Reyes Martínez</p>
-            <p class="name-family">María del Rocío Martínez Romero</p>
+    <!-- Reloj -->
+    <div class="glass-card" data-aos="zoom-in">
+        <h3>Cuenta Regresiva</h3>
+        <div class="countdown-container" id="timer">
+            <div class="count-item"><span class="count-number" id="days">00</span><span class="count-label">Días</span></div>
+            <div class="count-item"><span class="count-number" id="hours">00</span><span class="count-label">Hrs</span></div>
+            <div class="count-item"><span class="count-number" id="mins">00</span><span class="count-label">Min</span></div>
+            <div class="count-item"><span class="count-number" id="secs">00</span><span class="count-label">Seg</span></div>
         </div>
-
-        <!-- Reloj -->
-        <div class="glass-card" data-aos="zoom-in">
-            <h3>Cuenta Regresiva</h3>
-            <div class="countdown-container" id="timer">
-                <div class="count-item"><span class="count-number" id="days">00</span><span class="count-label">Días</span></div>
-                <div class="count-item"><span class="count-number" id="hours">00</span><span class="count-label">Hrs</span></div>
-                <div class="count-item"><span class="count-number" id="mins">00</span><span class="count-label">Min</span></div>
-                <div class="count-item"><span class="count-number" id="secs">00</span><span class="count-label">Seg</span></div>
-            </div>
-        </div>
-
-        <!-- Misa -->
-        <div class="glass-card" data-aos="fade-right">
-            <span style="font-size: 2rem;">⛪</span>
-            <h3>Ceremonia Religiosa</h3>
-            <p><b>Parroquia Santa María Magdalena</b></p>
-            <p>Plazuela Principal, Santa Cruz Tlapacoya<br>Ixtapaluca, Edo. Méx.</p>
-            <p><b>4:45 PM</b></p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+Santa+Maria+Magdalena+Ixtapaluca" class="btn" target="_blank">VER UBICACIÓN</a>
-        </div>
-
-        <!-- Salón -->
-        <div class="glass-card" data-aos="fade-left">
-            <span style="font-size: 2rem;">🏰</span>
-            <h3>Recepción</h3>
-            <p><b>Salón de fiestas GRECIA</b></p>
-            <p>Plazuela Principal, Santa Cruz Tlapacoya<br>Ixtapaluca, Edo. Méx.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+fiestas+GRECIA+Ixtapaluca" class="btn" target="_blank">VER UBICACIÓN DEL SALÓN</a>
-        </div>
-
-        <!-- Vestimenta -->
-        <div class="glass-card" data-aos="fade-up">
-            <span style="font-size: 2rem;">👗</span>
-            <h3>Código de Vestimenta</h3>
-            <p><b>Formal / Elegante</b></p>
-        </div>
-
-        <!-- Confirmación -->
-        <div class="glass-card" data-aos="fade-up" style="margin-bottom: 80px;">
-            <h3>¿Me acompañas?</h3>
-            <p>Por favor, confirma tu asistencia antes del 15 de septiembre.</p>
-            <a href="https://wa.me/52 55 8567 0796?text=Hola!%20Confirmo%20mi%20asistencia%20a%20tus%20XV%20Años." class="btn btn-whats" target="_blank">CONFIRMAR ASISTENCIA</a>
-        </div>
-
-        <footer style="text-align: center; padding: 30px; font-size: 0.7rem; opacity: 0.6; letter-spacing: 2px;">
-            IYARI JAZMÍN MARTÍNEZ CRUZ • 2026
-        </footer>
     </div>
 
-    <audio id="bgMusic" loop><source src="musica.mp3" type="audio/mpeg"></audio>
+    <!-- Misa -->
+    <div class="glass-card" data-aos="fade-right">
+        <span style="font-size: 2rem;">⛪</span>
+        <h3>Ceremonia Religiosa</h3>
+        <p><b>Parroquia Santa María Magdalena</b></p>
+        <p>Plazuela Principal, Santa Cruz Tlapacoya<br>Ixtapaluca, Edo. Méx.</p>
+        <p><b>4:45 PM</b></p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+Santa+Maria+Magdalena+Ixtapaluca" class="btn" target="_blank">VER UBICACIÓN</a>
+    </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        AOS.init({ duration: 1200, once: true });
+    <!-- Salón -->
+    <div class="glass-card" data-aos="fade-left">
+        <span style="font-size: 2rem;">🏰</span>
+        <h3>Recepción</h3>
+        <p><b>Salón de fiestas GRECIA</b></p>
+        <p>Plazuela Principal, Santa Cruz Tlapacoya<br>Ixtapaluca, Edo. Méx.</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+fiestas+GRECIA+Ixtapaluca" class="btn" target="_blank">VER UBICACIÓN DEL SALÓN</a>
+    </div>
 
-        particlesJS("particles-js", {
-            "particles": {
-                "number": { "value": 80 },
-                "color": { "value": ["#d4af37", "#f8bbd0", "#ffffff"] },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": true },
-                "size": { "value": 3, "random": true },
-                "move": { "enable": true, "speed": 1.5, "direction": "bottom-right", "random": true }
-            }
-        });
+    <!-- Vestimenta -->
+    <div class="glass-card" data-aos="fade-up">
+        <span style="font-size: 2rem;">👗</span>
+        <h3>Código de Vestimenta</h3>
+        <p><b>Formal / Elegante</b></p>
+    </div>
 
-        const audio = document.getElementById('bgMusic');
-        const musicBtn = document.getElementById('musicBtn');
-        let playing = false;
+    <!-- Confirmación -->
+    <div class="glass-card" data-aos="fade-up" style="margin-bottom: 80px;">
+        <h3>¿Me acompañas?</h3>
+        <p>Por favor, confirma tu asistencia antes del 15 de septiembre.</p>
+        <a href="https://wa.me/52 55 8567 0796?text=Hola!%20Confirmo%20mi%20asistencia%20a%20tus%20XV%20Años." class="btn btn-whats" target="_blank">CONFIRMAR ASISTENCIA</a>
+    </div>
 
-        musicBtn.addEventListener('click', () => {
-            if(!playing) {
-                audio.play();
-                document.getElementById('musicIcon').innerText = '⏸️';
-            } else {
-                audio.pause();
-                document.getElementById('musicIcon').innerText = '🎵';
-            }
-            playing = !playing;
-        });
+    <footer style="text-align: center; padding: 30px; font-size: 0.7rem; opacity: 0.6; letter-spacing: 2px;">
+        IYARI JAZMÍN MARTÍNEZ CRUZ • 2026
+    </footer>
+</div>
 
-        const targetDate = new Date("Oct 03, 2026 16:45:00").getTime();
-        setInterval(() => {
-            const now = new Date().getTime();
-            const diff = targetDate - now;
-            document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-            document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById('mins').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById('secs').innerText = Math.floor((diff % (1000 * 60)) / 1000);
-        }, 1000);
-    </script>
-</body>
-</html>
+<audio id="bgMusic" loop><source src="musica.mp3" type="audio/mpeg"></audio>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    AOS.init({ duration: 1200, once: true });
+
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 80 },
+            "color": { "value": ["#d4af37", "#f8bbd0", "#ffffff"] },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5, "random": true },
+            "size": { "value": 3, "random": true },
+            "move": { "enable": true, "speed": 1.5, "direction": "bottom-right", "random": true }
+        }
+    });
+
+    const audio = document.getElementById('bgMusic');
+    const musicBtn = document.getElementById('musicBtn');
+    let playing = false;
+
+    musicBtn.addEventListener('click', () => {
+        if(!playing) {
+            audio.play();
+            document.getElementById('musicIcon').innerText = '⏸️';
+        } else {
+            audio.pause();
+            document.getElementById('musicIcon').innerText = '🎵';
+        }
+        playing = !playing;
+    });
+
+    const targetDate = new Date("Oct 03, 2026 16:45:00").getTime();
+    setInterval(() => {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+        document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById('mins').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById('secs').innerText = Math.floor((diff % (1000 * 60)) / 1000);
+    }, 1000);
+</script>
