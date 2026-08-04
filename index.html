@@ -67,7 +67,6 @@
         .divider-flower span { font-size: 1.2rem; margin: 0 10px; }
         .divider-flower::before, .divider-flower::after { content: ''; height: 1px; width: 60px; background: var(--oro); opacity: 0.5; }
 
-        /* BOTONES */
         .btn {
             display: inline-block; background: linear-gradient(45deg, #b89b5e, #d4af37);
             color: white; text-decoration: none; padding: 16px 20px; border-radius: 50px;
@@ -82,7 +81,6 @@
             align-items: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); cursor: pointer; border: 2px solid var(--oro);
         }
 
-        /* CUENTA REGRESIVA */
         .countdown-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 20px; }
         .count-item { background: #fff; padding: 12px 5px; border-radius: 15px; }
         .count-number { display: block; font-size: 1.2rem; font-weight: 700; color: var(--rosa-fuerte); }
@@ -113,7 +111,7 @@
             <h2 style="font-family: 'Cinzel'; color: var(--oro); letter-spacing: 3px; font-size: 1.3rem;">03 • Octubre • 2026</h2>
         </header>
 
-        <!-- Reloj (Cuenta Regresiva) -->
+        <!-- Cuenta Regresiva -->
         <div class="glass-card" data-aos="zoom-in">
             <h3>Cuenta Regresiva</h3>
             <div class="countdown-container" id="timer">
@@ -124,10 +122,10 @@
             </div>
         </div>
 
-        <!-- Familia -->
+        <!-- Familia y Bendición -->
         <div class="glass-card" data-aos="fade-up">
             <p style="font-style: italic; margin-bottom: 25px; font-size: 1rem; line-height: 1.6; color: #555;">
-                "Con la bendición de Dios y la de mis padres, quiero compartir contigo este día tan especial."
+                "Con la bendición de Dios y el amor de mis padres, quiero compartir contigo este día tan especial."
             </p>
             <h3>Mis Padres</h3>
             <p style="font-weight: 600;">Juan Carlos Martínez Romero</p>
@@ -138,7 +136,7 @@
             <p style="font-weight: 600;">María del Rocío Martínez Romero</p>
         </div>
 
-        <!-- Lugares -->
+        <!-- Ubicaciones -->
         <div class="glass-card" data-aos="fade-right">
             <span style="font-size: 2rem;">⛪</span>
             <h3>Ceremonia Religiosa</h3>
@@ -163,16 +161,19 @@
             <p class="important-text">Se reserva el color palo de rosa para la festejada.</p>
         </div>
 
-        <!-- Mesa de Regalos -->
+        <!-- Opciones de Regalo -->
         <div class="glass-card" data-aos="fade-up">
-            <span style="font-size: 2rem;">🎁</span>
-            <h3 style="font-size: 1.2rem; color: var(--rosa-fuerte); font-family: 'Great Vibes'; text-transform: none; letter-spacing: 0;">Mesa de Regalos</h3>
-            <p style="font-size: 0.9rem; margin-bottom: 15px;">Tu compañía es mi mejor regalo, pero si deseas tener un detalle conmigo:</p>
+            <h3 style="font-size: 1.1rem; color: var(--oro); font-family: 'Cinzel'; letter-spacing: 3px;">Opciones de Regalo</h3>
+            <p style="font-size: 0.95rem; margin: 20px 0; line-height: 1.5;">
+                ¡El mejor regalo es tu presencia en este día. Si deseas tener un detalle conmigo, te dejo las siguientes opciones:!
+            </p>
             
-            <div style="background: var(--rosa-claro); padding: 20px; border-radius: 20px; border: 1px solid var(--oro);">
-                <p style="font-weight: 700; color: var(--oro); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px;">✉️ Lluvia de Sobres</p>
-                <p style="font-size: 0.8rem; line-height: 1.4;">Contaremos con un baúl especial en la entrada del salón para tus sobres y buenos deseos.</p>
-            </div>
+            <div class="divider-flower"><span>✉️</span></div>
+            
+            <h3 style="font-family: 'Cinzel'; font-size: 1.2rem; color: var(--rosa-fuerte); letter-spacing: 4px;">Lluvia de Sobres</h3>
+            <p style="font-size: 0.85rem; margin-top: 10px; color: #666;">
+                Contaremos con un baúl especial en la entrada del salón para tus buenos deseos.
+            </p>
         </div>
 
         <!-- Confirmación -->
@@ -211,7 +212,7 @@
         const musicBtn = document.getElementById('musicBtn');
         let playing = false;
         musicBtn.addEventListener('click', () => {
-            if(!playing) { audio.play().catch(e => console.log("Click para sonar")); document.getElementById('musicIcon').innerText = '⏸️'; }
+            if(!playing) { audio.play().catch(e => console.log("Música activada")); document.getElementById('musicIcon').innerText = '⏸️'; }
             else { audio.pause(); document.getElementById('musicIcon').innerText = '🎵'; }
             playing = !playing;
         });
