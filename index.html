@@ -28,7 +28,7 @@
             background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
         }
 
-        /* BANNERS DE FLORES SUPERIOR E INFERIOR */
+        /* MARGEN DE FLORES ARRIBA Y ABAJO */
         .header-flores { width: 100%; text-align: center; line-height: 0; position: relative; z-index: 4; }
         .flor-banner { width: 110%; max-width: 700px; margin-left: -5%; height: auto; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.05)); }
         .footer-flores { width: 100%; text-align: center; line-height: 0; transform: rotate(180deg); margin-top: 40px; }
@@ -52,7 +52,7 @@
         .full-name { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--oro); letter-spacing: 3px; margin-bottom: 25px; }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.94);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(8px);
             border-radius: 25px;
             padding: 35px 20px;
@@ -62,38 +62,33 @@
             text-align: center;
         }
 
-        h3 { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--oro); margin-bottom: 10px; letter-spacing: 3px; text-transform: uppercase; }
+        h3 { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--oro); margin-bottom: 15px; letter-spacing: 2px; text-transform: uppercase; }
         
         .divider-flower { display: flex; align-items: center; justify-content: center; margin: 20px 0; }
         .divider-flower span { font-size: 1.2rem; margin: 0 10px; }
         .divider-flower::before, .divider-flower::after { content: ''; height: 1px; width: 60px; background: var(--oro); opacity: 0.5; }
 
-        /* ICONOS Y TEXTO DE UBICACIONES (SEGÚN IMAGEN) */
-        .loc-icon { width: 45px; margin-bottom: 10px; opacity: 0.6; }
-        .loc-name { font-weight: 600; font-size: 1.05rem; color: #333; margin-bottom: 5px; }
-        .loc-detail { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
+        /* BOTONES */
+        .btn {
+            display: inline-block; background: linear-gradient(45deg, #b89b5e, #d4af37);
+            color: white; text-decoration: none; padding: 16px 20px; border-radius: 50px;
+            font-weight: 600; width: 100%; font-size: 0.8rem; letter-spacing: 2px; border: none; margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(184, 155, 94, 0.2);
+        }
+        .btn-whats { background: linear-gradient(45deg, #25d366, #128c7e); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2); }
 
-        /* BOTONES TIPO PILL DORADOS */
-        .btn-pill {
-            display: inline-block;
-            background-color: var(--oro-pill);
-            color: #fff;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 0.8rem;
-            padding: 12px 40px;
-            border-radius: 50px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(197, 160, 72, 0.3);
-            transition: 0.3s;
-            border: none;
-            width: 100%;
+        .music-control {
+            position: fixed; bottom: 25px; left: 25px; z-index: 100; background: white; 
+            width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; 
+            align-items: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); cursor: pointer; border: 2px solid var(--oro);
         }
 
-        /* SECCIÓN REGALOS SEGÚN IMAGEN ANTERIOR */
-        .gift-pill-tag {
+        .countdown-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 20px; }
+        .count-item { background: #fff; padding: 12px 5px; border-radius: 15px; }
+        .count-number { display: block; font-size: 1.2rem; font-weight: 700; color: var(--rosa-fuerte); }
+        .count-label { font-size: 0.55rem; text-transform: uppercase; color: #888; }
+
+        .pill-tag {
             display: inline-block;
             background-color: var(--oro-pill);
             color: #fff;
@@ -106,19 +101,7 @@
             text-transform: uppercase;
         }
 
-        /* OTROS */
-        .music-control {
-            position: fixed; bottom: 25px; left: 25px; z-index: 100; background: white; 
-            width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; 
-            align-items: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); cursor: pointer; border: 2px solid var(--oro);
-        }
-
-        .countdown-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 20px; }
-        .count-item { background: #fff; padding: 12px 5px; border-radius: 15px; }
-        .count-number { display: block; font-size: 1.2rem; font-weight: 700; color: var(--rosa-fuerte); }
-        .count-label { font-size: 0.55rem; text-transform: uppercase; color: #888; }
-
-        .btn-whats { background: linear-gradient(45deg, #25d366, #128c7e); color: white; padding: 16px; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2); }
+        .important-text { color: var(--palo-rosa); font-weight: 700; margin-top: 10px; display: block; font-size: 0.95rem; }
     </style>
 </head>
 <body>
@@ -127,7 +110,6 @@
 
     <div class="music-control" id="musicBtn"><span id="musicIcon" style="font-size: 24px;">🎵</span></div>
 
-    <!-- Margen Superior de Flores -->
     <div class="header-flores"><img src="flores.png" class="flor-banner"></div>
 
     <div class="main-container">
@@ -168,57 +150,58 @@
             <p style="font-weight: 600;">María del Rocío Martínez Romero</p>
         </div>
 
-        <!-- Ceremonia (SEGÚN IMAGEN) -->
+        <!-- Ubicaciones con íconos originales -->
         <div class="glass-card" data-aos="fade-right">
-            <img src="https://cdn-icons-png.flaticon.com/512/5025/5025733.png" class="loc-icon" alt="misa">
+            <span style="font-size: 2.5rem; display: block; margin-bottom: 10px;">⛪</span>
             <h3>Ceremonia Religiosa</h3>
-            <p class="loc-name">Parroquia Santa María Magdalena</p>
-            <p class="loc-detail">Ixtapaluca, Edo. Méx. | <b>4:45 PM</b></p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+Santa+Maria+Magdalena+Ixtapaluca" class="btn-pill" target="_blank">Ver Ubicación</a>
+            <p><b>Parroquia Santa María Magdalena</b></p>
+            <p>Ixtapaluca, Edo. Méx. | <b>4:45 PM</b></p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+Santa+Maria+Magdalena+Ixtapaluca" class="btn" target="_blank">VER UBICACIÓN</a>
         </div>
 
-        <!-- Recepción (SEGÚN IMAGEN) -->
         <div class="glass-card" data-aos="fade-left">
-            <img src="https://cdn-icons-png.flaticon.com/512/3252/3252932.png" class="loc-icon" alt="recepcion">
+            <span style="font-size: 2.5rem; display: block; margin-bottom: 10px;">🏰</span>
             <h3>Recepción</h3>
-            <p class="loc-name">Salón de fiestas GRECIA</p>
-            <p class="loc-detail">Plazuela Principal, Santa Cruz Tlapacoya | <b>6:30 PM</b></p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+festas+GRECIA+Ixtapaluca" class="btn-pill" target="_blank">Ver Salón</a>
+            <p><b>Salón de fiestas GRECIA</b></p>
+            <p>Plazuela Principal | <b>6:30 PM</b></p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+fiestas+GRECIA+Ixtapaluca" class="btn" target="_blank">VER SALÓN</a>
         </div>
 
         <!-- Vestimenta -->
         <div class="glass-card" data-aos="fade-up">
-            <img src="https://cdn-icons-png.flaticon.com/512/3531/3531744.png" class="loc-icon" alt="vestimenta">
+            <span style="font-size: 2.5rem; display: block; margin-bottom: 10px;">👗</span>
             <h3>Código de Vestimenta</h3>
             <p><b>Formal / Elegante</b></p>
-            <p style="color: var(--palo-rosa); font-weight: 700; font-size: 0.9rem; margin-top: 10px;">Se reserva el color palo de rosa para la festejada.</p>
+            <p class="important-text">Se reserva el color palo de rosa para la festejada.</p>
         </div>
 
-        <!-- Mesa de Regalos -->
+        <!-- Regalos con íconos originales -->
         <div class="glass-card" data-aos="fade-up">
-            <h3 style="font-size: 1.4rem; color: var(--oro); font-family: 'Cinzel'; letter-spacing: 4px; margin-bottom: 20px;">Mesa de Regalos</h3>
-            <p style="font-size: 0.95rem; margin-bottom: 30px; line-height: 1.6; padding: 0 5px;">
+            <h3 style="font-size: 1.1rem; color: var(--oro); font-family: 'Cinzel'; letter-spacing: 3px;">Mesa de Regalos</h3>
+            <p style="font-size: 0.95rem; margin: 20px 0; line-height: 1.5;">
                 Tu presencia es el regalo más valioso para mí en este día tan significativo. No obstante, si nace de tu corazón hacerme un presente, estas son las opciones que tendré disponibles:
             </p>
-            <div class="gift-pill-tag">Presente Físico</div>
-            <img src="https://cdn-icons-png.flaticon.com/512/3159/3159066.png" style="width: 55px; opacity: 0.7; margin: 0 auto 10px; display: block;">
-            <p style="font-size: 0.9rem; color: #555; margin-bottom: 25px;">Si deseas entregar un detalle físico, contaremos con un espacio reservado especialmente para recibirlo el día del evento.</p>
+            
+            <div class="pill-tag">Presente Físico</div>
+            <span style="font-size: 2.5rem; display: block; margin: 10px 0;">🎁</span>
+            <p style="font-size: 0.9rem; color: #555; margin-bottom: 25px;">Si deseas entregar un detalle físico, contaremos con un espacio reservado para recibirlo el día del evento.</p>
+
             <div style="height: 1px; background: var(--oro); width: 50%; margin: 0 auto 25px; opacity: 0.3;"></div>
-            <div class="gift-pill-tag">Lluvia de Sobres</div>
-            <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" style="width: 55px; opacity: 0.7; margin: 0 auto 10px; display: block;">
-            <p style="font-size: 0.9rem; color: #555;">Si prefieres realizar un obsequio en efectivo, tendremos a tu disposición un baúl en la recepción para recibir tus sobres y buenos deseos.</p>
+
+            <div class="pill-tag">Lluvia de Sobres</div>
+            <span style="font-size: 2.5rem; display: block; margin: 10px 0;">✉️</span>
+            <p style="font-size: 0.9rem; color: #555;">Si prefieres realizar un obsequio en efectivo, tendremos un baúl en la recepción para recibir tus sobres y buenos deseos.</p>
         </div>
 
         <!-- Confirmación -->
         <div class="glass-card" data-aos="fade-up">
             <h3>Confirmación</h3>
-            <p style="font-size: 0.9rem; margin-bottom: 20px;">Por favor, confirma tu asistencia antes del 15 de septiembre.</p>
-            <a href="https://wa.me/525585670796?text=Hola!%20Confirmo%20mi%20asistencia%20a%20tus%20XV%20Iyari" class="btn-pill btn-whats" target="_blank">CONFIRMAR POR WHATSAPP</a>
+            <p style="font-size: 0.9rem;">Por favor, confirma tu asistencia antes del 15 de septiembre.</p>
+            <a href="https://wa.me/525585670796?text=Hola!%20Confirmo%20mi%20asistencia%20a%20tus%20XV%20Iyari" class="btn btn-whats" target="_blank">CONFIRMAR POR WHATSAPP</a>
         </div>
 
     </div>
 
-    <!-- Margen Inferior de Flores -->
     <div class="footer-flores"><img src="flores.png" class="flor-banner"></div>
 
     <footer style="text-align: center; padding: 20px; font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px;">
