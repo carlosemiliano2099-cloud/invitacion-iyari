@@ -87,6 +87,15 @@
         .count-label { font-size: 0.55rem; text-transform: uppercase; color: #888; }
 
         .important-text { color: var(--palo-rosa); font-weight: 700; margin-top: 10px; display: block; font-size: 0.95rem; }
+
+        /* ESTILO OPCIONES DE REGALO */
+        .regalo-option {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid var(--oro);
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -168,12 +177,15 @@
                 ¡El mejor regalo es tu presencia en este día. Si deseas tener un detalle conmigo, te dejo las siguientes opciones:!
             </p>
             
-            <div class="divider-flower"><span>✉️</span></div>
-            
-            <h3 style="font-family: 'Cinzel'; font-size: 1.2rem; color: var(--rosa-fuerte); letter-spacing: 4px;">Lluvia de Sobres</h3>
-            <p style="font-size: 0.85rem; margin-top: 10px; color: #666;">
-                Contaremos con un baúl especial en la entrada del salón para tus buenos deseos.
-            </p>
+            <div class="regalo-option">
+                <p style="font-weight: 700; color: var(--rosa-fuerte); font-size: 0.9rem; text-transform: uppercase;">🎁 Regalos Físicos</p>
+                <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">Si prefieres un presente físico, podrás entregarlo el día del evento en el área designada.</p>
+            </div>
+
+            <div class="regalo-option">
+                <p style="font-weight: 700; color: var(--rosa-fuerte); font-size: 0.9rem; text-transform: uppercase;">✉️ Lluvia de Sobres</p>
+                <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">Contaremos con un baúl especial en la entrada del salón para tus buenos deseos.</p>
+            </div>
         </div>
 
         <!-- Confirmación -->
