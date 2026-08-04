@@ -24,32 +24,32 @@
             background-color: var(--rosa-claro);
             color: var(--texto);
             overflow-x: hidden;
+            /* Fondo con textura sutil */
             background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
         }
 
-        /* Contenedor de partículas debe tener dimensiones */
-        #particles-js { 
-            position: fixed; 
-            width: 100%; 
-            height: 100%; 
-            z-index: 1; 
-            top: 0; 
-            left: 0; 
+        /* CAPA DE LAS FLORES (TU IMAGEN) */
+        .decoracion-flores {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none; /* Para que no estorbe al hacer clic */
         }
 
-        .main-container { 
-            position: relative; 
-            z-index: 2; 
-            max-width: 500px; 
-            margin: 0 auto; 
-            padding: 20px; 
+        .flor-img {
+            position: absolute;
+            width: 280px; /* Tamaño ajustable */
+            opacity: 0.9;
         }
+        .top-left { top: -20px; left: -20px; }
+        .bottom-right { bottom: -20px; right: -20px; transform: rotate(180deg); }
 
-        .flower-corner {
-            position: fixed; width: 120px; z-index: 3; opacity: 0.5; pointer-events: none;
-        }
-        .top-left { top: -10px; left: -10px; transform: rotate(0deg); }
-        .bottom-right { bottom: -10px; right: -10px; transform: rotate(180deg); }
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: 2; top: 0; left: 0; }
+
+        .main-container { position: relative; z-index: 3; max-width: 500px; margin: 0 auto; padding: 20px; }
 
         header {
             min-height: 100vh;
@@ -67,31 +67,28 @@
             animation: float 3s ease-in-out infinite;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
         .mis-xv { font-family: 'Cinzel', serif; font-size: 1.6rem; color: var(--oro); letter-spacing: 5px; font-weight: 700; }
-        h1 { font-family: 'Great Vibes', cursive; font-size: 4rem; color: var(--rosa-fuerte); margin: 10px 0; }
+        h1 { font-family: 'Great Vibes', cursive; font-size: 4.2rem; color: var(--rosa-fuerte); margin: 10px 0; text-shadow: 2px 2px 0px white; }
         .full-name { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--oro); letter-spacing: 3px; margin-bottom: 25px; }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(10px);
             border-radius: 25px;
-            padding: 35px 25px;
+            padding: 35px 20px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            border: 1px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.5);
             text-align: center;
         }
 
         h3 { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--oro); margin-bottom: 15px; letter-spacing: 2px; }
         
         .divider-flower { display: flex; align-items: center; justify-content: center; margin: 20px 0; }
-        .divider-flower span { font-size: 1.2rem; margin: 0 10px; }
         .divider-flower::before, .divider-flower::after { content: ''; height: 1px; width: 50px; background: var(--oro); }
+        .divider-flower span { font-size: 1.2rem; margin: 0 10px; }
 
         .name-family { font-weight: 600; font-size: 1rem; color: #333; margin-bottom: 5px; }
 
@@ -109,9 +106,10 @@
             letter-spacing: 1px;
             transition: 0.3s;
             border: none;
+            box-shadow: 0 4px 12px rgba(184, 155, 94, 0.3);
         }
 
-        .btn-whats { background: linear-gradient(45deg, #25d366, #128c7e); }
+        .btn-whats { background: linear-gradient(45deg, #25d366, #128c7e); box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3); }
 
         .music-control {
             position: fixed; bottom: 20px; right: 20px; z-index: 100;
@@ -122,20 +120,23 @@
         }
 
         .countdown-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 15px; }
-        .count-item { background: #fff; padding: 10px 5px; border-radius: 15px; box-shadow: inset 0 0 5px rgba(0,0,0,0.05); }
+        .count-item { background: #fff; padding: 10px 5px; border-radius: 15px; }
         .count-number { display: block; font-size: 1.2rem; font-weight: 700; color: var(--rosa-fuerte); }
         .count-label { font-size: 0.5rem; text-transform: uppercase; color: #888; }
 
-        .important-text { color: var(--palo-rosa); font-weight: 700; margin-top: 8px; display: block; font-size: 0.9rem; }
+        .important-text { color: var(--palo-rosa); font-weight: 700; margin-top: 8px; display: block; font-size: 0.95rem; }
+
     </style>
 </head>
 <body>
 
-    <div id="particles-js"></div>
+    <!-- Capa de tus flores -->
+    <div class="decoracion-flores">
+        <img src="flores.png" class="flor-img top-left" alt="decoracion">
+        <img src="flores.png" class="flor-img bottom-right" alt="decoracion">
+    </div>
 
-    <!-- Flores decorativas -->
-    <img src="https://cdn-icons-png.flaticon.com/512/606/606801.png" class="flower-corner top-left" alt="decoracion">
-    <img src="https://cdn-icons-png.flaticon.com/512/606/606801.png" class="flower-corner bottom-right" alt="decoracion">
+    <div id="particles-js"></div>
 
     <div class="music-control" id="musicBtn">
         <span id="musicIcon">🎵</span>
@@ -155,7 +156,6 @@
             <h2 style="font-family: 'Cinzel'; color: var(--oro); letter-spacing: 3px; font-size: 1.2rem;">03 • Octubre • 2026</h2>
         </header>
 
-        <!-- Familia -->
         <div class="glass-card" data-aos="fade-up">
             <h3>Con la bendición de mis padres</h3>
             <p class="name-family">Juan Carlos Martínez Romero</p>
@@ -166,7 +166,6 @@
             <p class="name-family">María del Rocío Martínez Romero</p>
         </div>
 
-        <!-- Reloj -->
         <div class="glass-card" data-aos="zoom-in">
             <h3>Cuenta Regresiva</h3>
             <div class="countdown-container" id="timer">
@@ -177,7 +176,6 @@
             </div>
         </div>
 
-        <!-- Misa -->
         <div class="glass-card" data-aos="fade-right">
             <span style="font-size: 2rem;">⛪</span>
             <h3>Ceremonia Religiosa</h3>
@@ -186,7 +184,6 @@
             <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+Santa+Maria+Magdalena+Ixtapaluca" class="btn" target="_blank">VER UBICACIÓN</a>
         </div>
 
-        <!-- Salón -->
         <div class="glass-card" data-aos="fade-left">
             <span style="font-size: 2rem;">🏰</span>
             <h3>Recepción</h3>
@@ -195,16 +192,14 @@
             <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+fiestas+GRECIA+Ixtapaluca" class="btn" target="_blank">VER UBICACIÓN DEL SALÓN</a>
         </div>
 
-        <!-- Regalos y Lluvia de sobres -->
         <div class="glass-card" data-aos="fade-up">
             <span style="font-size: 2rem;">🎁</span>
             <h3>El mejor regalo</h3>
-            <p>Tu presencia es lo más importante para mí, pero si deseas obsequiarme un detalle, puedes hacerlo de forma física o mediante la tradición de:</p>
+            <p>Tu presencia es lo más importante para mí, pero si deseas obsequiarme un detalle, puedes hacerlo de forma física o mediante:</p>
             <p class="important-text">✉️ Lluvia de Sobres</p>
-            <p style="font-size: 0.8rem; margin-top: 10px; font-style: italic;">(Habrá un baúl especial en la entrada del salón para tus buenos deseos)</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; font-style: italic;">(Habrá un baúl especial en la entrada del salón)</p>
         </div>
 
-        <!-- Vestimenta -->
         <div class="glass-card" data-aos="fade-up">
             <span style="font-size: 2rem;">👗</span>
             <h3>Código de Vestimenta</h3>
@@ -212,11 +207,10 @@
             <p class="important-text">Se reserva el color palo de rosa para la festejada.</p>
         </div>
 
-        <!-- Confirmación -->
         <div class="glass-card" data-aos="fade-up" style="margin-bottom: 80px;">
             <h3>¿Me acompañas?</h3>
             <p>Confirma tu asistencia antes del 15 de septiembre.</p>
-            <a href="https://wa.me/52 55 8567 0796?text=Hola!%20Confirmo%20mi%20asistencia%20a%20tus%20XV%20Años.%20Nombre:" class="btn btn-whats" target="_blank">CONFIRMAR ASISTENCIA</a>
+            <a href="https://wa.me/525585670796?text=Hola!%20Confirmo%20mi%20asistencia%20a%20tus%20XV%20Años.%20Nombre:" class="btn btn-whats" target="_blank">CONFIRMAR ASISTENCIA</a>
         </div>
 
         <footer style="text-align: center; padding: 20px; font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px;">
@@ -224,36 +218,31 @@
         </footer>
     </div>
 
-    <!-- Música -->
     <audio id="bgMusic" loop><source src="musica.mp3" type="audio/mpeg"></audio>
 
-    <!-- Scripts de Librerías -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Inicializar animaciones al bajar scroll
         AOS.init({ duration: 1000, once: true });
 
-        // Configuración de fondo con puntos dorados/rosas
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 50 },
+                "number": { "value": 40 },
                 "color": { "value": ["#d4af37", "#f8bbd0"] },
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.4 },
+                "opacity": { "value": 0.3 },
                 "size": { "value": 3 },
-                "move": { "enable": true, "speed": 1, "direction": "bottom", "random": true }
+                "move": { "enable": true, "speed": 0.8, "direction": "bottom", "random": true }
             }
         });
 
-        // Control de Música
         const audio = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
         let playing = false;
 
         musicBtn.addEventListener('click', () => {
             if(!playing) {
-                audio.play().catch(e => console.log("Error al reproducir"));
+                audio.play().catch(e => console.log("Error"));
                 document.getElementById('musicIcon').innerText = '⏸️';
             } else {
                 audio.pause();
@@ -262,12 +251,10 @@
             playing = !playing;
         });
 
-        // Reloj de cuenta regresiva
         const targetDate = new Date("Oct 03, 2026 16:45:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
             const diff = targetDate - now;
-            
             if (diff > 0) {
                 document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
                 document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
