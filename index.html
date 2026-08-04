@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XV Años | Iyari Jazmín</title>
-    <!-- Fuentes y Animaciones -->
+    <!-- Fuentes de Alta Gama -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
@@ -27,7 +27,7 @@
             background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
         }
 
-        /* BANNER DE FLORES ARRIBA Y ABAJO */
+        /* BANNER DE FLORES SUPERIOR E INFERIOR */
         .header-flores { width: 100%; text-align: center; line-height: 0; position: relative; z-index: 4; }
         .flor-banner { width: 110%; max-width: 700px; margin-left: -5%; height: auto; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.05)); }
         .footer-flores { width: 100%; text-align: center; line-height: 0; transform: rotate(180deg); margin-top: 40px; }
@@ -61,45 +61,20 @@
             text-align: center;
         }
 
-        h3 { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--oro); margin-bottom: 15px; letter-spacing: 2px; }
+        h3 { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--oro); margin-bottom: 15px; letter-spacing: 2px; text-transform: uppercase; }
         
         .divider-flower { display: flex; align-items: center; justify-content: center; margin: 20px 0; }
         .divider-flower span { font-size: 1.2rem; margin: 0 10px; }
         .divider-flower::before, .divider-flower::after { content: ''; height: 1px; width: 60px; background: var(--oro); opacity: 0.5; }
 
-        /* MESA DE REGALOS */
-        .gift-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 25px 0; }
-        .gift-box { 
-            border: 1px solid var(--oro); border-radius: 15px; padding: 15px 10px; 
-            display: flex; flex-direction: column; align-items: center; text-decoration: none; color: inherit;
-        }
-        .gift-icon-circle {
-            width: 60px; height: 60px; border-radius: 50%; background: var(--rosa-fuerte);
-            display: flex; justify-content: center; align-items: center; margin-bottom: 10px;
-            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.2);
-        }
-        .gift-icon-circle.amazon { background: #232f3e; }
-        .gift-icon-circle img { width: 30px; filter: brightness(0) invert(1); }
-        .gift-box p { font-size: 0.7rem; font-weight: 700; color: var(--oro); margin-bottom: 5px; text-transform: uppercase; }
-
-        /* MODAL */
-        .modal {
-            display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
-        }
-        .modal-content {
-            background-color: white; margin: 30% auto; padding: 30px; border-radius: 20px;
-            width: 85%; max-width: 400px; text-align: center; position: relative;
-        }
-
         /* BOTONES */
         .btn {
             display: inline-block; background: linear-gradient(45deg, #b89b5e, #d4af37);
             color: white; text-decoration: none; padding: 16px 20px; border-radius: 50px;
-            font-weight: 600; width: 100%; font-size: 0.8rem; letter-spacing: 2px; border: none; margin-top: 10px;
+            font-weight: 600; width: 100%; font-size: 0.8rem; letter-spacing: 2px; border: none; margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(184, 155, 94, 0.2);
         }
-        .btn-outline { background: white; border: 1px solid var(--oro); color: var(--oro); margin-top: 10px; font-size: 0.7rem; padding: 10px; }
-        .btn-whats { background: linear-gradient(45deg, #25d366, #128c7e); }
+        .btn-whats { background: linear-gradient(45deg, #25d366, #128c7e); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2); }
 
         .music-control {
             position: fixed; bottom: 25px; left: 25px; z-index: 100; background: white; 
@@ -107,13 +82,13 @@
             align-items: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); cursor: pointer; border: 2px solid var(--oro);
         }
 
-        /* COUNTDOWN */
+        /* CUENTA REGRESIVA */
         .countdown-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 20px; }
         .count-item { background: #fff; padding: 12px 5px; border-radius: 15px; }
         .count-number { display: block; font-size: 1.2rem; font-weight: 700; color: var(--rosa-fuerte); }
         .count-label { font-size: 0.55rem; text-transform: uppercase; color: #888; }
 
-        .important-text { color: var(--palo-rosa); font-weight: 700; margin-top: 10px; display: block; font-size: 0.9rem; }
+        .important-text { color: var(--palo-rosa); font-weight: 700; margin-top: 10px; display: block; font-size: 0.95rem; }
     </style>
 </head>
 <body>
@@ -122,6 +97,7 @@
 
     <div class="music-control" id="musicBtn"><span id="musicIcon" style="font-size: 24px;">🎵</span></div>
 
+    <!-- Margen Superior de Flores -->
     <div class="header-flores"><img src="flores.png" class="flor-banner"></div>
 
     <div class="main-container">
@@ -150,51 +126,33 @@
 
         <!-- Familia -->
         <div class="glass-card" data-aos="fade-up">
-            <h3>Con la bendición de mis padres</h3>
+            <p style="font-style: italic; margin-bottom: 25px; font-size: 1rem; line-height: 1.6; color: #555;">
+                "Con la bendición de Dios y la de mis padres, quiero compartir contigo este día tan especial."
+            </p>
+            <h3>Mis Padres</h3>
             <p style="font-weight: 600;">Juan Carlos Martínez Romero</p>
             <p style="font-weight: 600;">Araceli Cruz Sánchez</p>
-            <div class="divider-flower"><span>👑</span></div>
-            <h3>Y mis padrinos</h3>
+            <div class="divider-flower" style="margin: 15px 0;"><span>👑</span></div>
+            <h3>Mis Padrinos</h3>
             <p style="font-weight: 600;">Gabriel Reyes Martínez</p>
             <p style="font-weight: 600;">María del Rocío Martínez Romero</p>
-        </div>
-
-        <!-- MESA DE REGALOS -->
-        <div class="glass-card" data-aos="fade-up">
-            <h3 style="font-size: 1.2rem; color: var(--rosa-fuerte); font-family: 'Great Vibes'; text-transform: none; letter-spacing: 0;">Mesa de Regalos</h3>
-            <p style="font-size: 0.8rem;">Tu compañía es mi mayor regalo, pero si deseas tener un detalle conmigo:</p>
-
-            <div class="gift-grid">
-                <div class="gift-box">
-                    <div class="gift-icon-circle">
-                        <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="sobre">
-                    </div>
-                    <p>Lluvia de Sobres</p>
-                </div>
-
-                <a href="https://www.amazon.com.mx/baby-reg/homepage" target="_blank" class="gift-box">
-                    <div class="gift-icon-circle amazon">
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968202.png" alt="amazon">
-                    </div>
-                    <p>Amazon</p>
-                </a>
-            </div>
-            <button class="btn btn-outline" onclick="document.getElementById('bankModal').style.display='block'">VER DATOS BANCARIOS</button>
         </div>
 
         <!-- Lugares -->
         <div class="glass-card" data-aos="fade-right">
             <span style="font-size: 2rem;">⛪</span>
             <h3>Ceremonia Religiosa</h3>
-            <p>Parroquia Santa María Magdalena | 4:45 PM</p>
+            <p><b>Parroquia Santa María Magdalena</b></p>
+            <p>Ixtapaluca, Edo. Méx. | <b>4:45 PM</b></p>
             <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+Santa+Maria+Magdalena+Ixtapaluca" class="btn" target="_blank">VER UBICACIÓN</a>
         </div>
 
         <div class="glass-card" data-aos="fade-left">
             <span style="font-size: 2rem;">🏰</span>
             <h3>Recepción</h3>
-            <p>Salón de fiestas GRECIA</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+fiestas+GRECIA+Ixtapaluca" class="btn" target="_blank">VER UBICACIÓN</a>
+            <p><b>Salón de fiestas GRECIA</b></p>
+            <p>Plazuela Principal, Santa Cruz Tlapacoya</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+fiestas+GRECIA+Ixtapaluca" class="btn" target="_blank">VER SALÓN</a>
         </div>
 
         <!-- Vestimenta -->
@@ -205,30 +163,31 @@
             <p class="important-text">Se reserva el color palo de rosa para la festejada.</p>
         </div>
 
+        <!-- Mesa de Regalos -->
+        <div class="glass-card" data-aos="fade-up">
+            <span style="font-size: 2rem;">🎁</span>
+            <h3 style="font-size: 1.2rem; color: var(--rosa-fuerte); font-family: 'Great Vibes'; text-transform: none; letter-spacing: 0;">Mesa de Regalos</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 15px;">Tu compañía es mi mejor regalo, pero si deseas tener un detalle conmigo:</p>
+            
+            <div style="background: var(--rosa-claro); padding: 20px; border-radius: 20px; border: 1px solid var(--oro);">
+                <p style="font-weight: 700; color: var(--oro); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px;">✉️ Lluvia de Sobres</p>
+                <p style="font-size: 0.8rem; line-height: 1.4;">Contaremos con un baúl especial en la entrada del salón para tus sobres y buenos deseos.</p>
+            </div>
+        </div>
+
         <!-- Confirmación -->
         <div class="glass-card" data-aos="fade-up">
-            <h3>Confirmación</h3>
-            <p>Por favor, confirma tu asistencia antes del 15 de septiembre.</p>
-            <a href="https://wa.me/525585670796?text=Confirmación%20XV%20Iyari" class="btn btn-whats" target="_blank">CONFIRMAR POR WHATSAPP</a>
+            <h3 style="font-family: 'Cinzel';">Confirmación</h3>
+            <p style="font-size: 0.9rem;">Por favor, confirma tu asistencia antes del 15 de septiembre.</p>
+            <a href="https://wa.me/525585670796?text=Hola!%20Confirmo%20mi%20asistencia%20a%20tus%20XV%20Iyari" class="btn btn-whats" target="_blank">CONFIRMAR POR WHATSAPP</a>
         </div>
 
     </div>
 
-    <!-- MODAL DATOS BANCARIOS -->
-    <div id="bankModal" class="modal">
-        <div class="modal-content">
-            <span style="position:absolute;top:10px;right:15px;cursor:pointer;font-size:20px" onclick="document.getElementById('bankModal').style.display='none'">&times;</span>
-            <h3 style="color:var(--oro)">Datos Bancarios</h3>
-            <div style="height:1px;background:var(--oro);margin:10px 0;opacity:0.3"></div>
-            <p style="margin:10px 0; font-size:0.9rem"><b>Banco:</b> Tu Banco</p>
-            <p style="margin:10px 0; font-size:0.9rem"><b>Titular:</b> Araceli Cruz Sánchez</p>
-            <p style="margin:10px 0; font-size:0.9rem"><b>CLABE:</b> 0000 0000 0000 0000 00</p>
-        </div>
-    </div>
-
+    <!-- Margen Inferior de Flores -->
     <div class="footer-flores"><img src="flores.png" class="flor-banner"></div>
 
-    <footer style="text-align: center; padding: 30px; font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px;">
+    <footer style="text-align: center; padding: 20px; font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px;">
         IYARI JAZMÍN MARTÍNEZ CRUZ • 2026
     </footer>
 
@@ -252,14 +211,15 @@
         const musicBtn = document.getElementById('musicBtn');
         let playing = false;
         musicBtn.addEventListener('click', () => {
-            if(!playing) { audio.play(); document.getElementById('musicIcon').innerText = '⏸️'; }
+            if(!playing) { audio.play().catch(e => console.log("Click para sonar")); document.getElementById('musicIcon').innerText = '⏸️'; }
             else { audio.pause(); document.getElementById('musicIcon').innerText = '🎵'; }
             playing = !playing;
         });
 
         const targetDate = new Date("Oct 03, 2026 16:45:00").getTime();
         setInterval(() => {
-            const diff = targetDate - new Date().getTime();
+            const now = new Date().getTime();
+            const diff = targetDate - now;
             if(diff > 0) {
                 document.getElementById('days').innerText = Math.floor(diff / 86400000);
                 document.getElementById('hours').innerText = Math.floor((diff % 86400000) / 3600000);
@@ -267,12 +227,6 @@
                 document.getElementById('secs').innerText = Math.floor((diff % 60000) / 1000);
             }
         }, 1000);
-
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('bankModal')) {
-                document.getElementById('bankModal').style.display = "none";
-            }
-        }
     </script>
 </body>
 </html>
