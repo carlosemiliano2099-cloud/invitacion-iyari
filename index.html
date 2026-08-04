@@ -27,7 +27,7 @@
             background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
         }
 
-        /* BANNER DE FLORES */
+        /* BANNER DE FLORES ARRIBA Y ABAJO */
         .header-flores { width: 100%; text-align: center; line-height: 0; position: relative; z-index: 4; }
         .flor-banner { width: 110%; max-width: 700px; margin-left: -5%; height: auto; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.05)); }
         .footer-flores { width: 100%; text-align: center; line-height: 0; transform: rotate(180deg); margin-top: 40px; }
@@ -36,9 +36,19 @@
 
         .main-container { position: relative; z-index: 3; max-width: 500px; margin: -60px auto 0; padding: 0 20px 40px; }
 
-        h1 { font-family: 'Great Vibes', cursive; font-size: 4rem; color: var(--rosa-fuerte); margin: 5px 0; text-shadow: 2px 2px 0px white; line-height: 1.1; }
-        h2 { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--oro); letter-spacing: 3px; }
-        h3 { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--oro); margin-bottom: 15px; letter-spacing: 2px; }
+        header { padding: 40px 10px; text-align: center; }
+
+        .crown-container {
+            width: 65px; margin: 0 auto 20px; fill: var(--oro-brillante);
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+            animation: float 3.5s ease-in-out infinite;
+        }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+        .mis-xv { font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--oro); letter-spacing: 5px; font-weight: 700; margin-bottom: 5px; }
+        h1 { font-family: 'Great Vibes', cursive; font-size: 4.2rem; color: var(--rosa-fuerte); margin: 5px 0; text-shadow: 2px 2px 0px white; line-height: 1.1; }
+        .full-name { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--oro); letter-spacing: 3px; margin-bottom: 25px; }
 
         .glass-card {
             background: rgba(255, 255, 255, 0.92);
@@ -51,32 +61,36 @@
             text-align: center;
         }
 
-        /* ESTILOS MESA DE REGALOS */
+        h3 { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--oro); margin-bottom: 15px; letter-spacing: 2px; }
+        
+        .divider-flower { display: flex; align-items: center; justify-content: center; margin: 20px 0; }
+        .divider-flower span { font-size: 1.2rem; margin: 0 10px; }
+        .divider-flower::before, .divider-flower::after { content: ''; height: 1px; width: 60px; background: var(--oro); opacity: 0.5; }
+
+        /* MESA DE REGALOS */
         .gift-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 25px 0; }
         .gift-box { 
-            border: 2px solid var(--oro); border-radius: 15px; padding: 20px 10px; 
+            border: 1px solid var(--oro); border-radius: 15px; padding: 15px 10px; 
             display: flex; flex-direction: column; align-items: center; text-decoration: none; color: inherit;
         }
         .gift-icon-circle {
-            width: 70px; height: 70px; border-radius: 50%; background: var(--rosa-fuerte);
-            display: flex; justify-content: center; align-items: center; margin-bottom: 15px;
+            width: 60px; height: 60px; border-radius: 50%; background: var(--rosa-fuerte);
+            display: flex; justify-content: center; align-items: center; margin-bottom: 10px;
             box-shadow: 0 5px 15px rgba(233, 30, 99, 0.2);
         }
         .gift-icon-circle.amazon { background: #232f3e; }
-        .gift-icon-circle img { width: 40px; filter: brightness(0) invert(1); }
-        .gift-box p { font-size: 0.7rem; font-weight: 700; color: var(--oro); margin-bottom: 10px; text-transform: uppercase; }
-        .btn-small { background: white; border: 1px solid var(--rosa-fuerte); color: var(--rosa-fuerte); padding: 5px 15px; border-radius: 20px; font-size: 0.6rem; font-weight: 700; }
+        .gift-icon-circle img { width: 30px; filter: brightness(0) invert(1); }
+        .gift-box p { font-size: 0.7rem; font-weight: 700; color: var(--oro); margin-bottom: 5px; text-transform: uppercase; }
 
-        /* MODAL PARA DATOS BANCARIOS */
+        /* MODAL */
         .modal {
             display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
         }
         .modal-content {
-            background-color: white; margin: 20% auto; padding: 30px; border-radius: 20px;
+            background-color: white; margin: 30% auto; padding: 30px; border-radius: 20px;
             width: 85%; max-width: 400px; text-align: center; position: relative;
         }
-        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 25px; cursor: pointer; color: var(--oro); }
 
         /* BOTONES */
         .btn {
@@ -84,7 +98,7 @@
             color: white; text-decoration: none; padding: 16px 20px; border-radius: 50px;
             font-weight: 600; width: 100%; font-size: 0.8rem; letter-spacing: 2px; border: none; margin-top: 10px;
         }
-        .btn-outline { background: white; border: 2px solid var(--oro); color: var(--oro); margin-top: 20px; }
+        .btn-outline { background: white; border: 1px solid var(--oro); color: var(--oro); margin-top: 10px; font-size: 0.7rem; padding: 10px; }
         .btn-whats { background: linear-gradient(45deg, #25d366, #128c7e); }
 
         .music-control {
@@ -93,10 +107,13 @@
             align-items: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); cursor: pointer; border: 2px solid var(--oro);
         }
 
-        .countdown-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+        /* COUNTDOWN */
+        .countdown-container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 20px; }
         .count-item { background: #fff; padding: 12px 5px; border-radius: 15px; }
         .count-number { display: block; font-size: 1.2rem; font-weight: 700; color: var(--rosa-fuerte); }
         .count-label { font-size: 0.55rem; text-transform: uppercase; color: #888; }
+
+        .important-text { color: var(--palo-rosa); font-weight: 700; margin-top: 10px; display: block; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -110,63 +127,88 @@
     <div class="main-container">
         
         <header data-aos="fade-down">
-            <h2 class="mis-xv">Mis XV Años</h2>
+            <div class="crown-container">
+                <svg viewBox="0 0 512 512"><path d="M472,168c-26.4,0-48,21.6-48,48c0,2.4,0.3,4.8,0.7,7.1l-64.7,32.3L281.4,103.5c16.4-6.8,28.2-22.9,28.2-41.8 C309.6,36.9,285.8,13,256.4,13c-29.4,0-53.2,23.9-53.2,53.2c0,19.3,10.2,36,25.3,45.2L151.7,255.4l-64.7-32.3c0.5-2.3,0.7-4.7,0.7-7.1 c0-26.4-21.6-48-48-48S0,189.6,0,216s21.6,48,48,48c2.4,0,4.8-0.2,7.1-0.7l32.3,161.7C91,446.9,110,464,132,464h248 c22,0,41-17.1,44.6-39.1l32.3-161.7c2.3,0.5,4.7,0.7,7.1,0.7c26.4,0,48-21.6,48-48S498.4,168,472,168z"/></svg>
+            </div>
+            <div class="mis-xv">Mis XV Años</div>
             <h1>Iyari Jazmín</h1>
-            <h3 class="full-name">Martínez Cruz</h3>
-            <p style="font-style: italic; color: #777; font-size: 0.9rem;">"Tu compañía es mi mejor regalo"</p>
-            <h2 style="margin-top: 20px;">03 • OCT • 2026</h2>
+            <div class="full-name">Martínez Cruz</div>
+            <div class="divider-flower"><span>🌸</span></div>
+            <h2 style="font-family: 'Cinzel'; color: var(--oro); letter-spacing: 3px; font-size: 1.3rem;">03 • Octubre • 2026</h2>
         </header>
+
+        <!-- Reloj (Cuenta Regresiva) -->
+        <div class="glass-card" data-aos="zoom-in">
+            <h3>Cuenta Regresiva</h3>
+            <div class="countdown-container" id="timer">
+                <div class="count-item"><span class="count-number" id="days">00</span><span class="count-label">Días</span></div>
+                <div class="count-item"><span class="count-number" id="hours">00</span><span class="count-label">Hrs</span></div>
+                <div class="count-item"><span class="count-number" id="mins">00</span><span class="count-label">Min</span></div>
+                <div class="count-item"><span class="count-number" id="secs">00</span><span class="count-label">Seg</span></div>
+            </div>
+        </div>
+
+        <!-- Familia -->
+        <div class="glass-card" data-aos="fade-up">
+            <h3>Con la bendición de mis padres</h3>
+            <p style="font-weight: 600;">Juan Carlos Martínez Romero</p>
+            <p style="font-weight: 600;">Araceli Cruz Sánchez</p>
+            <div class="divider-flower"><span>👑</span></div>
+            <h3>Y mis padrinos</h3>
+            <p style="font-weight: 600;">Gabriel Reyes Martínez</p>
+            <p style="font-weight: 600;">María del Rocío Martínez Romero</p>
+        </div>
 
         <!-- MESA DE REGALOS -->
         <div class="glass-card" data-aos="fade-up">
-            <h1 style="font-size: 3rem; margin-bottom: 10px;">Mesa de Regalos</h1>
-            <p style="font-size: 0.85rem;">Si gustas hacerme un detalle, lo agradecería de corazón.</p>
+            <h3 style="font-size: 1.2rem; color: var(--rosa-fuerte); font-family: 'Great Vibes'; text-transform: none; letter-spacing: 0;">Mesa de Regalos</h3>
+            <p style="font-size: 0.8rem;">Tu compañía es mi mayor regalo, pero si deseas tener un detalle conmigo:</p>
 
             <div class="gift-grid">
-                <!-- Lluvia de Sobres -->
                 <div class="gift-box">
                     <div class="gift-icon-circle">
                         <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="sobre">
                     </div>
                     <p>Lluvia de Sobres</p>
-                    <span style="font-size: 0.55rem; color: #888;">Tendremos un baúl en el salón</span>
                 </div>
 
-                <!-- Amazon (Cambia el link donde dice href="#") -->
                 <a href="https://www.amazon.com.mx/baby-reg/homepage" target="_blank" class="gift-box">
                     <div class="gift-icon-circle amazon">
                         <img src="https://cdn-icons-png.flaticon.com/512/5968/5968202.png" alt="amazon">
                     </div>
                     <p>Amazon</p>
-                    <span class="btn-small">VER MESA</span>
                 </a>
             </div>
-
-            <p style="font-size: 0.75rem; font-weight: 600; color: var(--oro); margin-top: 20px;">DATOS PARA REGALO EN EFECTIVO:</p>
-            <button class="btn btn-outline" onclick="document.getElementById('bankModal').style.display='block'">DATOS BANCARIOS</button>
+            <button class="btn btn-outline" onclick="document.getElementById('bankModal').style.display='block'">VER DATOS BANCARIOS</button>
         </div>
 
-        <!-- Ubicaciones -->
-        <div class="glass-card" data-aos="fade-up">
-            <h3>⛪ Ceremonia Religiosa</h3>
+        <!-- Lugares -->
+        <div class="glass-card" data-aos="fade-right">
+            <span style="font-size: 2rem;">⛪</span>
+            <h3>Ceremonia Religiosa</h3>
             <p>Parroquia Santa María Magdalena | 4:45 PM</p>
             <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+Santa+Maria+Magdalena+Ixtapaluca" class="btn" target="_blank">VER UBICACIÓN</a>
         </div>
 
-        <div class="glass-card" data-aos="fade-up">
-            <h3>🏰 Recepción</h3>
+        <div class="glass-card" data-aos="fade-left">
+            <span style="font-size: 2rem;">🏰</span>
+            <h3>Recepción</h3>
             <p>Salón de fiestas GRECIA</p>
             <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+fiestas+GRECIA+Ixtapaluca" class="btn" target="_blank">VER UBICACIÓN</a>
         </div>
 
+        <!-- Vestimenta -->
         <div class="glass-card" data-aos="fade-up">
-            <h3>👗 Código de Vestimenta</h3>
-            <p>Formal / Elegante</p>
-            <p style="color: var(--palo-rosa); font-weight: 700; font-size: 0.85rem; margin-top: 5px;">Se reserva el Palo de Rosa para la festejada.</p>
+            <span style="font-size: 2rem;">👗</span>
+            <h3>Código de Vestimenta</h3>
+            <p><b>Formal / Elegante</b></p>
+            <p class="important-text">Se reserva el color palo de rosa para la festejada.</p>
         </div>
 
-        <div class="glass-card" data-aos="fade-up" style="margin-bottom: 50px;">
+        <!-- Confirmación -->
+        <div class="glass-card" data-aos="fade-up">
             <h3>Confirmación</h3>
+            <p>Por favor, confirma tu asistencia antes del 15 de septiembre.</p>
             <a href="https://wa.me/525585670796?text=Confirmación%20XV%20Iyari" class="btn btn-whats" target="_blank">CONFIRMAR POR WHATSAPP</a>
         </div>
 
@@ -175,17 +217,20 @@
     <!-- MODAL DATOS BANCARIOS -->
     <div id="bankModal" class="modal">
         <div class="modal-content">
-            <span class="close-modal" onclick="document.getElementById('bankModal').style.display='none'">&times;</span>
-            <h2 style="color: var(--oro); font-family: 'Cinzel';">Datos Bancarios</h2>
-            <div style="height: 2px; background: var(--rosa-claro); margin: 15px 0;"></div>
-            <p style="margin: 10px 0;"><b>Banco:</b> Banco Ejemplo</p>
-            <p style="margin: 10px 0;"><b>Titular:</b> Araceli Cruz Sánchez</p>
-            <p style="margin: 10px 0;"><b>CLABE:</b> 0123 4567 8901 2345 67</p>
-            <p style="font-size: 0.8rem; color: #888; margin-top: 20px;">¡Muchas gracias por el detalle!</p>
+            <span style="position:absolute;top:10px;right:15px;cursor:pointer;font-size:20px" onclick="document.getElementById('bankModal').style.display='none'">&times;</span>
+            <h3 style="color:var(--oro)">Datos Bancarios</h3>
+            <div style="height:1px;background:var(--oro);margin:10px 0;opacity:0.3"></div>
+            <p style="margin:10px 0; font-size:0.9rem"><b>Banco:</b> Tu Banco</p>
+            <p style="margin:10px 0; font-size:0.9rem"><b>Titular:</b> Araceli Cruz Sánchez</p>
+            <p style="margin:10px 0; font-size:0.9rem"><b>CLABE:</b> 0000 0000 0000 0000 00</p>
         </div>
     </div>
 
     <div class="footer-flores"><img src="flores.png" class="flor-banner"></div>
+
+    <footer style="text-align: center; padding: 30px; font-size: 0.7rem; opacity: 0.5; letter-spacing: 2px;">
+        IYARI JAZMÍN MARTÍNEZ CRUZ • 2026
+    </footer>
 
     <audio id="bgMusic" loop><source src="musica.mp3" type="audio/mpeg"></audio>
 
@@ -195,15 +240,14 @@
         AOS.init({ duration: 1200, once: true });
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 40 },
+                "number": { "value": 30 },
                 "color": { "value": ["#d4af37", "#f8bbd0"] },
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.3 },
-                "move": { "enable": true, "speed": 1, "direction": "bottom" }
+                "move": { "enable": true, "speed": 0.8, "direction": "bottom" }
             }
         });
 
-        // Control Música
         const audio = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
         let playing = false;
@@ -213,7 +257,17 @@
             playing = !playing;
         });
 
-        // Cerrar modal si tocan fuera
+        const targetDate = new Date("Oct 03, 2026 16:45:00").getTime();
+        setInterval(() => {
+            const diff = targetDate - new Date().getTime();
+            if(diff > 0) {
+                document.getElementById('days').innerText = Math.floor(diff / 86400000);
+                document.getElementById('hours').innerText = Math.floor((diff % 86400000) / 3600000);
+                document.getElementById('mins').innerText = Math.floor((diff % 3600000) / 60000);
+                document.getElementById('secs').innerText = Math.floor((diff % 60000) / 1000);
+            }
+        }, 1000);
+
         window.onclick = function(event) {
             if (event.target == document.getElementById('bankModal')) {
                 document.getElementById('bankModal').style.display = "none";
